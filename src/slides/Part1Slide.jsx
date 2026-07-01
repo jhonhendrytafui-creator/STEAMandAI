@@ -110,8 +110,8 @@ const Part1Slide = ({ goToSlide }) => {
   const cardsData = [
     {
       id: 1,
-      title: "Timelapse Video",
-      description: "Instead of taking notes, students record a timelapse video. They can see the plant grow fast!",
+      title: "Time-Lapse Video",
+      description: "Instead of writing notes, students record a time-lapse video to watch the plant grow quickly.",
       icon: Video,
       color: "var(--color-s)",
       mediaType: "video",
@@ -119,8 +119,8 @@ const Part1Slide = ({ goToSlide }) => {
     },
     {
       id: 2,
-      title: "Automated Irrigation",
-      description: "Students build a system that waters the plant automatically. This teaches them basic engineering.",
+      title: "Automatic Watering",
+      description: "Students build an automatic watering system, learning basic engineering through hands-on practice.",
       icon: Droplets,
       color: "var(--color-t)",
       mediaType: "video",
@@ -128,12 +128,12 @@ const Part1Slide = ({ goToSlide }) => {
     },
     {
       id: 3,
-      title: "Change the Medium",
-      description: "Instead of dirt, students grow plants in a glowing hydro-orb. It makes science feel like magic.",
+      title: "Modern Growth Medium",
+      description: "Instead of using soil, students grow plants in glowing hydro-orbs to make science feel like magic.",
       icon: FlaskConical,
       color: "var(--color-e)",
-      mediaType: "image",
-      mediaSrc: "/orb.png"
+      mediaType: "video",
+      mediaSrc: "/orb.mp4"
     }
   ];
 
@@ -295,7 +295,7 @@ const Part1Slide = ({ goToSlide }) => {
               }}
             >
               <button
-                onClick={() => goToSlide(1)}
+                onClick={() => goToSlide(4)}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -310,7 +310,7 @@ const Part1Slide = ({ goToSlide }) => {
                 }}
                 className="mono-text"
               >
-                Next Part <ChevronLeft size={16} style={{ transform: 'rotate(180deg)' }} />
+                Next Slide <ChevronLeft size={16} style={{ transform: 'rotate(180deg)' }} />
               </button>
             </motion.div>
           )}
