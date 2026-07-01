@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;600;700&family=JetBrains+Mono:wght@100;400&display=swap');
+
+:root {
+  /* Minimalist Premium Dark Theme (avoiding standard neon blue/purple) */
+  --bg-color: #030303;
+  --bg-surface: #0a0a0a;
+  --text-primary: #fcfcfc;
+  --text-secondary: #888888;
+  
+  /* Amber/Gold & Crimson accents for a sophisticated, warm high-tech feel */
+  --accent-primary: #FFB300; 
+  --accent-secondary: #E53935;
+  
+  /* Project-wide Palette (Analogous Sunset/Cyber) */
+  --color-s: #FFC107; /* Gold */
+  --color-t: #FF9800; /* Orange */
+  --color-e: #FF5722; /* Vermilion */
+  --color-a: #E91E63; /* Rose */
+  --color-m: #9C27B0; /* Violet */
+  --color-ai: #E53935; /* Crimson */
+  
+  --glass-bg: rgba(255, 255, 255, 0.02);
+  --glass-border: rgba(255, 255, 255, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  overflow: hidden; 
+  height: 100vh;
+  width: 100vw;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* Typography Overrides */
+h1, h2, h3 {
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+
+.mono-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* Sophisticated Gradient Text */
+.text-gradient {
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.text-gradient-warm {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
