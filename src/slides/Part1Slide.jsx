@@ -280,42 +280,6 @@ const Part1Slide = ({ goToSlide }) => {
 
         </div>
         
-        {/* Next Part Button */}
-        <AnimatePresence>
-          {isRevealed && (
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1, duration: 0.5 }}
-              style={{
-                position: 'absolute',
-                bottom: '1rem',
-                right: '1rem',
-                zIndex: 100
-              }}
-            >
-              <button
-                onClick={() => goToSlide(4)}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.75rem 1.5rem',
-                  background: 'var(--glass-bg)',
-                  border: '1px solid var(--accent-primary)',
-                  borderRadius: '8px',
-                  color: 'var(--accent-primary)',
-                  cursor: 'pointer',
-                  fontSize: '1rem'
-                }}
-                className="mono-text"
-              >
-                Next Slide <ChevronLeft size={16} style={{ transform: 'rotate(180deg)' }} />
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
-        
       </div>
     </SlideWrapper>
   );

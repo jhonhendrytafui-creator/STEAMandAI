@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Brain, Sparkles, Users, MessageSquare, ChevronLeft } from 'lucide-react';
+import { Brain, Sparkles, Users, MessageSquare } from 'lucide-react';
 import SlideWrapper from '../components/SlideWrapper';
 
 const SkillCard = ({ title, icon: Icon, color, delay, onClick }) => {
@@ -61,7 +61,7 @@ const SkillCard = ({ title, icon: Icon, color, delay, onClick }) => {
   );
 };
 
-const Part1SkillsSlide = ({ goToSlide }) => {
+const Part1SkillsSlide = () => {
   const [isRevealed, setIsRevealed] = useState(false);
   const [selectedSkill, setSelectedSkill] = useState(null);
 
@@ -116,46 +116,6 @@ const Part1SkillsSlide = ({ goToSlide }) => {
     <SlideWrapper>
       <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' }}>
         
-        {/* Navigation Breadcrumb */}
-        <div style={{ 
-          display: 'flex', 
-          justifyContent: 'space-between', 
-          width: '100%', 
-          marginBottom: isRevealed ? '1.5rem' : 'auto',
-          transition: 'margin 0.8s ease',
-          zIndex: 45 
-        }}>
-          <div 
-            onClick={() => goToSlide(3)}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              color: 'var(--text-secondary)',
-              cursor: 'pointer',
-              alignSelf: 'flex-start'
-            }}
-            className="mono-text"
-          >
-            <ChevronLeft size={16} /> Back to Slide 1
-          </div>
-          
-          <div 
-            onClick={() => goToSlide(1)}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              color: 'var(--text-secondary)',
-              cursor: 'pointer',
-              alignSelf: 'flex-start'
-            }}
-            className="mono-text"
-          >
-            Hub <ChevronLeft size={16} style={{ transform: 'rotate(180deg)' }} />
-          </div>
-        </div>
-
         {/* Central Layout Container (Centering Content in the Middle) */}
         <div style={{ 
           display: 'flex', 
@@ -284,42 +244,6 @@ const Part1SkillsSlide = ({ goToSlide }) => {
 
         </div>
         
-        {/* Next Part Button */}
-        <AnimatePresence>
-          {isRevealed && (
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1, duration: 0.5 }}
-              style={{
-                position: 'absolute',
-                bottom: '1rem',
-                right: '1rem',
-                zIndex: 100
-              }}
-            >
-              <button
-                onClick={() => goToSlide(1)}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.75rem 1.5rem',
-                  background: 'var(--glass-bg)',
-                  border: '1px solid var(--accent-primary)',
-                  borderRadius: '8px',
-                  color: 'var(--accent-primary)',
-                  cursor: 'pointer',
-                  fontSize: '1rem'
-                }}
-                className="mono-text"
-              >
-                Next Part <ChevronLeft size={16} style={{ transform: 'rotate(180deg)' }} />
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
         {/* Popup Detail Modal (Enlarged to 80% screen size with very large ESL fonts) */}
         <AnimatePresence>
           {selectedSkill !== null && (

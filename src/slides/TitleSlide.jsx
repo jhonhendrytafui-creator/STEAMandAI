@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, useAnimationFrame } from 'framer-motion';
-import { Network, ChevronRight } from 'lucide-react';
+import { Network } from 'lucide-react';
 import SlideWrapper from '../components/SlideWrapper';
 
 const NetworkAnimation = () => {
@@ -194,21 +194,6 @@ const TitleSlide = () => {
             <h2 style={{ fontSize: '2.5rem', color: 'var(--text-secondary)', fontWeight: 300 }}>
               AI and STEAM <span style={{ opacity: 0.6 }}>(Interdisciplinary Learning)</span>
             </h2>
-          </motion.div>
-
-          <motion.div 
-            variants={itemVariants}
-            style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginTop: 'auto' }}
-          >
-            <motion.div
-              animate={{ x: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-              style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: 'var(--text-primary)' }}
-              className="mono-text"
-            >
-              <span>Swipe or press space to begin</span>
-              <ChevronRight size={24} color="var(--accent-primary)" />
-            </motion.div>
           </motion.div>
         </motion.div>
 
