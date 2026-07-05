@@ -192,7 +192,7 @@ const TitleSlide = () => {
           >
             <div style={{ width: '60px', height: '2px', background: 'var(--text-secondary)' }} />
             <h2 style={{ fontSize: '2.5rem', color: 'var(--text-secondary)', fontWeight: 300 }}>
-              AI and STEAM <span style={{ opacity: 0.6 }}>(Interdisciplinary Learning)</span>
+              AI and <span style={{ opacity: 0.8 }}>Multidisciplinary-Interdisciplinary Learning</span>
             </h2>
           </motion.div>
         </motion.div>

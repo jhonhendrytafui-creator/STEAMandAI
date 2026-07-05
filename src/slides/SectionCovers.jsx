@@ -55,6 +55,6 @@ const CoverSlide = ({ title, subtitle, color, partNumber }) => {
 };
 
 export const Part1Cover = () => <CoverSlide partNumber={1} title="Being a Relevant Teacher" color="var(--color-s)" />;
-export const Part2Cover = () => <CoverSlide partNumber={2} title="Interdisciplinary Learning" color="var(--color-a)" />;
+export const Part2Cover = () => <CoverSlide partNumber={2} title="Multidisciplinary and Interdisciplinary Learning" color="var(--color-a)" />;
 export const Part3Cover = () => <CoverSlide partNumber={3} title="Artificial Intelligence" color="var(--color-ai)" />;
 export const Part4Cover = () => <CoverSlide partNumber={4} title="Workshop" color="var(--color-t)" />;

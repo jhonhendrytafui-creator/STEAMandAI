@@ -19,9 +19,9 @@ const OutlineSlide = ({ goToSlide }) => {
 
   const outlineItems = [
     { title: "Being a Relevant Teacher", icon: GraduationCap, color: "var(--color-s)", targetIndex: 2 },
-    { title: "Interdisciplinary Learning", icon: Waypoints, color: "var(--color-a)", targetIndex: 8 },
-    { title: "Artificial Intelligence", icon: Cpu, color: "var(--color-ai)", targetIndex: 10 },
-    { title: "Workshop", icon: Laptop, color: "var(--color-t)", targetIndex: 11 }
+    { title: "Multidisciplinary and Interdisciplinary Learning", icon: Waypoints, color: "var(--color-a)", targetIndex: 8 },
+    { title: "Artificial Intelligence", icon: Cpu, color: "var(--color-ai)", targetIndex: 15 },
+    { title: "Workshop", icon: Laptop, color: "var(--color-t)", targetIndex: 24 }
   ];
 
   return (

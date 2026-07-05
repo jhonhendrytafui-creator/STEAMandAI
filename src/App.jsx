@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { Maximize, Minimize, Pencil, ChevronLeft, ChevronRight, Home } from 'lucide-react';
+import { Maximize, Minimize, Pencil, ChevronLeft, ChevronRight, Home, ZoomIn, ZoomOut } from 'lucide-react';
 import TitleSlide from './slides/TitleSlide';
 import OutlineSlide from './slides/OutlineSlide';
 import Part1Slide from './slides/Part1Slide';
@@ -12,6 +12,19 @@ import Part1DiscussionSlide from './slides/Part1DiscussionSlide';
 import Part1ReflectionSlide from './slides/Part1ReflectionSlide';
 import Part1ConnectionSlide from './slides/Part1ConnectionSlide';
 import Part2SunflowerSlide from './slides/Part2SunflowerSlide';
+import Part2ReginaldDennySlide from './slides/Part2ReginaldDennySlide';
+import Part2DefinitionSlide from './slides/Part2DefinitionSlide';
+import Part2WhySlide from './slides/Part2WhySlide';
+import Part2LaunchSlide from './slides/Part2LaunchSlide';
+import Part2DiscussionSlide from './slides/Part2DiscussionSlide';
+import Part3HistorySlide from './slides/Part3HistorySlide';
+import Part3HowAIThinksSlide from './slides/Part3HowAIThinksSlide';
+import Part3AnthropicDataSlide from './slides/Part3AnthropicDataSlide';
+import Part3LevelsSlide from './slides/Part3LevelsSlide';
+import Part3ShowcaseSlide from './slides/Part3ShowcaseSlide';
+import Part3CollaboratorSlide from './slides/Part3CollaboratorSlide';
+import Part3PollingSlide from './slides/Part3PollingSlide';
+import Part3StrategiesSlide from './slides/Part3StrategiesSlide';
 
 
 // Non-linear presentation map (Hub and Spoke)
@@ -29,13 +42,26 @@ const slideMap = [
   
   // Part 2: Interdisciplinary Learning
   { id: 8, component: Part2Cover, next: 9, prev: 1 },
-  { id: 9, component: Part2SunflowerSlide, next: 1, prev: 8 },
+  { id: 9, component: Part2SunflowerSlide, next: 10, prev: 8 },
+  { id: 10, component: Part2ReginaldDennySlide, next: 11, prev: 9 },
+  { id: 11, component: Part2DefinitionSlide, next: 12, prev: 10 },
+  { id: 12, component: Part2WhySlide, next: 13, prev: 11 },
+  { id: 13, component: Part2DiscussionSlide, next: 14, prev: 12 },
+  { id: 14, component: Part2LaunchSlide, next: 1, prev: 13 },
   
   // Part 3: Artificial Intelligence
-  { id: 10, component: Part3Cover, next: 1, prev: 1 },
+  { id: 15, component: Part3Cover, next: 16, prev: 1 },
+  { id: 16, component: Part3HistorySlide, next: 17, prev: 15 },
+  { id: 17, component: Part3HowAIThinksSlide, next: 18, prev: 16 },
+  { id: 18, component: Part3AnthropicDataSlide, next: 19, prev: 17 },
+  { id: 19, component: Part3LevelsSlide, next: 20, prev: 18 },
+  { id: 20, component: Part3ShowcaseSlide, next: 21, prev: 19 },
+  { id: 21, component: Part3CollaboratorSlide, next: 22, prev: 20 },
+  { id: 22, component: Part3PollingSlide, next: 23, prev: 21 },
+  { id: 23, component: Part3StrategiesSlide, next: 1, prev: 22 },
   
   // Part 4: Workshop
-  { id: 11, component: Part4Cover, next: 1, prev: 1 },
+  { id: 24, component: Part4Cover, next: 1, prev: 1 },
 ];
 
 function App() {
@@ -46,6 +72,7 @@ function App() {
   
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
+  const [zoomLevel, setZoomLevel] = useState(1);
   const minSwipeDistance = 50;
 
   const handleNext = () => {
@@ -124,12 +151,60 @@ function App() {
 
   return (
     <div 
-      style={{ width: '100%', height: '100%', position: 'relative' }}
+      style={{ width: '100%', height: '100%', position: 'relative', overflow: zoomLevel > 1 ? 'auto' : 'hidden' }}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
     >
       <BackgroundAnimation />
+      
+      {/* Zoom Controls */}
+      <div style={{
+        position: 'fixed', top: '2rem', left: '2.5rem', zIndex: 1000,
+        display: 'flex', gap: '0.5rem', background: 'var(--glass-bg)', padding: '0.5rem',
+        borderRadius: '50px', backdropFilter: 'blur(10px)', border: '1px solid var(--glass-border)',
+        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.2)'
+      }}>
+        <button
+          onClick={() => setZoomLevel(prev => Math.max(0.5, prev - 0.1))}
+          style={{
+            background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer',
+            width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            borderRadius: '50%', transition: 'all 0.2s'
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--text-primary)'; e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-secondary)'; e.currentTarget.style.background = 'transparent'; }}
+          title="Zoom Out"
+        >
+          <ZoomOut size={18} />
+        </button>
+        <button
+          onClick={() => setZoomLevel(1)}
+          style={{
+            background: 'transparent', border: 'none', color: 'var(--text-primary)', cursor: 'pointer',
+            padding: '0 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            borderRadius: '18px', transition: 'all 0.2s', fontSize: '0.9rem', fontWeight: 'bold'
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+          title="Reset Zoom"
+        >
+          {Math.round(zoomLevel * 100)}%
+        </button>
+        <button
+          onClick={() => setZoomLevel(prev => Math.min(3, prev + 0.1))}
+          style={{
+            background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer',
+            width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            borderRadius: '50%', transition: 'all 0.2s'
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--text-primary)'; e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-secondary)'; e.currentTarget.style.background = 'transparent'; }}
+          title="Zoom In"
+        >
+          <ZoomIn size={18} />
+        </button>
+      </div>
 
       {/* Laser Writer Canvas */}
       <LaserCanvas isActive={isLaserActive} />
@@ -334,9 +409,11 @@ function App() {
         {isFullscreen ? <Minimize size={20} /> : <Maximize size={20} />}
       </button>
       
-      <AnimatePresence mode="wait">
-        <CurrentSlideComponent key={currentSlideIndex} goToSlide={goToSlide} />
-      </AnimatePresence>
+      <div style={{ width: '100%', height: '100%', zoom: zoomLevel }}>
+        <AnimatePresence mode="wait">
+          <CurrentSlideComponent key={currentSlideIndex} goToSlide={goToSlide} />
+        </AnimatePresence>
+      </div>
       
       {/* Slide / Routing Indicator */}
       <div style={{

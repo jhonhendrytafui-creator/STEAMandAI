@@ -236,7 +236,7 @@ const Part1ConnectionSlide = ({ goToSlide }) => {
                 onClick={() => goToSlide && goToSlide(1)}
                 styleProps={{ top: 380, left: 400, pointerEvents: 'auto' }}
               >
-                Interdisciplinary Learning
+                Interdisciplinary and Multidisciplinary
               </Bubble>
               <Bubble size={110} color="#9C27B0" delay={0.8} duration={4.5} isFloating styleProps={{ top: 450, left: 200 }}>
                 Design Thinking
