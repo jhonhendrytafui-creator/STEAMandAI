@@ -6,7 +6,7 @@ import OutlineSlide from './slides/OutlineSlide';
 import Part1Slide from './slides/Part1Slide';
 import Part1SkillsSlide from './slides/Part1SkillsSlide';
 import { Part1Cover, Part2Cover, Part3Cover, Part4Cover } from './slides/SectionCovers';
-import BackgroundAnimation from './components/BackgroundAnimation';
+
 import LaserCanvas from './components/LaserCanvas';
 import Part1DiscussionSlide from './slides/Part1DiscussionSlide';
 import Part1ReflectionSlide from './slides/Part1ReflectionSlide';
@@ -156,7 +156,7 @@ function App() {
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
     >
-      <BackgroundAnimation />
+
       
       {/* Zoom Controls */}
       <div style={{
