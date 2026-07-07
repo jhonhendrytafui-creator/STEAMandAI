@@ -149,10 +149,11 @@ const Part1Slide = ({ goToSlide }) => {
             transition={{ duration: 0.5 }}
             style={{
               position: 'fixed',
-              top: 0,
-              left: 0,
-              width: '100vw',
-              height: '100vh',
+              top: '50%',
+              left: '50%',
+              width: '300vw',
+              height: '300vh',
+              transform: 'translate(-50%, -50%)',
               background: 'rgba(0,0,0,0.85)',
               backdropFilter: 'blur(8px)',
               zIndex: 40,

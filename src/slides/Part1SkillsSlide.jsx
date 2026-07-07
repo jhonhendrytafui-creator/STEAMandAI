@@ -249,10 +249,11 @@ const Part1SkillsSlide = () => {
           {selectedSkill !== null && (
             <div style={{
               position: 'fixed',
-              top: 0,
-              left: 0,
-              width: '100vw',
-              height: '100vh',
+              top: '50%',
+              left: '50%',
+              width: '300vw',
+              height: '300vh',
+              transform: 'translate(-50%, -50%)',
               zIndex: 1000,
               display: 'flex',
               alignItems: 'center',
